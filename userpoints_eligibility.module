@@ -230,6 +230,9 @@ function userpoints_eligibility_add($params) {
       actions_do(array_keys($actions), (object) array(), $context);
     }
 
+    // Invoke hook_userpoints_eligibility_add().
+    module_invoke_all('userpoints_eligibility_add', $params);
+
     return userpoints_userpointsapi($params);
   }
 
